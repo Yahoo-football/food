@@ -68,7 +68,7 @@
  }
 
  li a:hover,
- .active {
+.active {
      border-left: solid #667eea 8px;
      background: #222222e0;
      color: white;
@@ -77,46 +77,66 @@
  .menu {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-     gap: 20px;
+     gap: 20px 25px;
      padding: 40px;
  }
 
- .product {
-     background: #ffffff;
-     border-radius: 12px;
-     padding: 20px;
-     text-align: center;
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
- }
+.product {
+    background: #fff;
+    padding: 20px;
+    width: 250px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
- .product img {
-     width: 200px;
-     height: auto;
-     margin-bottom: 15px;
- }
+/* Card hover animation */
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+}
 
- .product h3 {
-     margin: 10px 0;
- }
+/* Image animation */
+.product img {
+    width: 150px;
+    transition: transform 0.4s ease;
+}
 
- .price {
-     display: block;
-     font-weight: bold;
-     margin: 10px 0;
- }
+.product:hover img {
+    transform: scale(1.08) rotate(-2deg);
+}
 
- button {
-     background: #9f09b0;
-     color: #fff;
-     border: none;
-     padding: 10px 15px;
-     border-radius: 6px;
-     cursor: pointer;
- }
+/* Price */
+.price {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #a213a0;
+}
 
- button:hover {
-     background: #61067a;
- }
+/* Button animation */
+.product button {
+    padding: 10px 18px;
+    border: none;
+    background: #871ea4;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.product button:hover {
+    background: #556b2f;
+    transform: scale(1.05);
+}
+
+/* Click animation */
+.product button:active {
+    transform: scale(0.95);
+}
+
 
  /* Hero Section */
  .hero {
