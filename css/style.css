@@ -97,7 +97,7 @@ li a:hover,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 60px;
+    padding: 100px;
 }
 
 .hero-text {
@@ -106,6 +106,7 @@ li a:hover,
 
 .hero-text h1 {
     font-size: 48px;
+    color: #f4eeee;
 }
 
 .hero-text p {
@@ -127,8 +128,29 @@ li a:hover,
 }
 
 /* Hero Image */
+.hero-img {
+    animation: imageLoading 1.5s ease-in-out infinite;
+}
+
+@keyframes imageLoading {
+    0% {
+        opacity: 1;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(0.98);
+    }
+}
+
+
 .hero-img img {
     width: 450px;
+    border-radius: 200px;
 }
 
 /* Menu */
