@@ -28,14 +28,16 @@ console.log(admin[0]['name']);
 
 login.addEventListener('click', () => {
   const user = localStorage.getItem("user");
-  for (let data of JSON.parse(user)) {
-    if(userPassword.value === admin[0]['password'] && userName.value === admin[0]['name']){
-      dashboard.style.display = 'none';
-      strategy.style.display = 'none';
-      aTag.href = 'navbar.html';
-    }
-    if (userPassword.value === data.password && userName.value === data.name || userName.value === data.email) {
-      aTag.href = 'navbar.html';
+  if(userPassword.value === admin[0]['password'] && userName.value === admin[0]['name']){
+    console.log(userPassword.value)
+    dashboard.style.display='none';
+    strategy.style.display = 'none';
+    aTag.href = 'navbar.html';
+  }else{
+    for (let data of JSON.parse(user)) {
+      if (userPassword.value === data.password && userName.value === data.name || userName.value === data.email) {
+        aTag.href = 'navbar.html';
+      }
     }
   }
 })
