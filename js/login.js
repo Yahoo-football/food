@@ -19,6 +19,9 @@ const login = document.getElementById("login");
 const aTag = login.querySelector('a')
 const userName = document.getElementById('username')
 const userPassword = document.getElementById('userpassword')
+const dashboard = document.getElementById('Dashboard')
+const strategy = document.getElementById('strategy')
+console.log(dashboard)
 
 const admin = [{'name':'sreyroth','password':'12345678'}];
 console.log(admin[0]['name']);
@@ -27,10 +30,12 @@ login.addEventListener('click', () => {
   const user = localStorage.getItem("user");
   for (let data of JSON.parse(user)) {
     if(userPassword.value === admin[0]['password'] && userName.value === admin[0]['name']){
-        console.log('world')
+      dashboard.style.display = 'none';
+      strategy.style.display = 'none';
+      aTag.href = 'navbar.html';
     }
     if (userPassword.value === data.password && userName.value === data.name || userName.value === data.email) {
-      aTag.href = 'home.html';
+      aTag.href = 'navbar.html';
     }
   }
 })
