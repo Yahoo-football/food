@@ -42,7 +42,10 @@
 
       /* NAV */
       .nav {
-        width: auto;
+        width: 900px;
+        display: flex ;
+        align-items: center;
+        justify-content: space-between;
       }
 
       .nav ul {
@@ -56,13 +59,13 @@
         min-width: 70px;
       }
 
-      .nav li:last-child {
+      .nav .image {
         background-image: url(../images/User.jpg);
         background-size: cover;
         background-position: center;
         border-radius: 50%;
-        width: 50px;
-        height: 50px;
+        width: 64px;
+        height: 64px;
       }
 
       .nav a {
@@ -77,8 +80,6 @@
 
       .nav a:hover,
       .nav a.active {
-        width: 100%;
-        /* background: #d9ff00; */
         border-bottom: 4px solid #667eea;
         color: #000000;
         border-radius: 4px;
@@ -90,68 +91,6 @@
         font-size: 28px;
         cursor: pointer;
       }
-
-      /* ------------------ RESPONSIVE ------------------ */
-
-      /* 📱 Mobile Small */
-      @media (max-width: 480px) {
-        header {
-          padding: 12px 20px;
-        }
-
-        .logo {
-          font-size: 1.3em;
-        }
-      }
-
-      /* 📱 Mobile & Tablet */
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-          color: #667eea;
-        }
-
-        .nav {
-          position: absolute;
-          top: 70px;
-          right: 0;
-          width: 100%;
-          background: white;
-          display: none;
-        }
-
-        .nav ul {
-          flex-direction: column;
-          padding: 20px 0;
-          gap: 15px;
-        }
-
-        .nav li:last-child {
-          margin-top: 10px;
-        }
-
-        #menu-checkbox:checked ~ .nav {
-          display: block;
-        }
-      }
-
-      /* 📲 Tablet Landscape */
-      @media (min-width: 769px) and (max-width: 1024px) {
-        header {
-          padding: 15px 30px;
-        }
-
-        .nav ul {
-          gap: 15px;
-        }
-      }
-
-      /* 💻 Laptop & Large Screens */
-      @media (min-width: 1025px) {
-        header {
-          padding: 15px 60px;
-        }
-      }
     </style>
   </head>
   <body>
@@ -162,10 +101,11 @@
           <li><a href="" class="active">Home</a></li>
           <li><a href="">Menu</a></li>
           <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
           <li><a href="">Dashboard</a></li>
           <li><a href="">strategy</a></li>
-          <li></li>
         </ul>
+        <div class="image"></div>
       </div>
     </header>
   </body>
