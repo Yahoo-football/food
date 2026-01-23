@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Event Listeners - Add Strategy Buttons
             Object.entries(addButtons).forEach(([type, button]) => {
-                button ? .addEventListener('click', () => openStrategyModal(type));
+                button?.addEventListener('click', () => openStrategyModal(type));
             });
 
             // Event Listeners - Modal Controls
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.addEventListener('click', () => closeSwotModal());
             });
 
-            strategyForm ? .addEventListener('submit', handleStrategySubmit);
-            swotForm ? .addEventListener('submit', handleSwotSubmit);
+            strategyForm?.addEventListener('submit', handleStrategySubmit);
+            swotForm?.addEventListener('submit', handleSwotSubmit);
 
             // Event Listeners - SWOT
             addSwotButtons.forEach(btn => {
@@ -70,53 +70,53 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            updateSwotBtn ? .addEventListener('click', loadSwotAnalysis);
-            generateSwotReportBtn ? .addEventListener('click', generateSwotReport);
-            exportSwotBtn ? .addEventListener('click', exportSwotAnalysis);
+            updateSwotBtn?.addEventListener('click', loadSwotAnalysis);
+            generateSwotReportBtn?.addEventListener('click', generateSwotReport);
+            exportSwotBtn?.addEventListener('click', exportSwotAnalysis);
 
             // Close modals on outside click
-            strategyModal ? .addEventListener('click', (e) => {
+            strategyModal?.addEventListener('click', (e) => {
                 if (e.target === strategyModal) {
                     closeStrategyModal();
                 }
             });
 
-            swotModal ? .addEventListener('click', (e) => {
+            swotModal?.addEventListener('click', (e) => {
                 if (e.target === swotModal) {
                     closeSwotModal();
                 }
             });
 
             // Strategy Manager Class
-            function StrategyFoodManager() {
+            class StrategyFoodManager {
                 // Strategy management
-                this.getStrategies = (type) => {
+                getStrategies(type) {
                     const strategies = JSON.parse(localStorage.getItem('foodStrategies')) || {};
                     return strategies[type] || [];
-                };
+                }
 
-                this.saveStrategies = (type, strategies) => {
+                saveStrategies(type, strategies) {
                     const allStrategies = JSON.parse(localStorage.getItem('foodStrategies')) || {};
                     allStrategies[type] = strategies;
                     localStorage.setItem('foodStrategies', JSON.stringify(allStrategies));
-                };
+                }
 
-                this.createStrategy = (type, strategy) => {
+                createStrategy(type, strategy) {
                     const strategies = this.getStrategies(type);
                     const newStrategy = {
                         id: Date.now(),
                         type: type,
                         ...strategy,
                         created: new Date().toISOString().split('T')[0],
-                        createdBy: auth.currentUser ? .name || 'Admin',
+                        createdBy: auth.currentUser?.name || 'Admin',
                         status: 'active'
                     };
                     strategies.push(newStrategy);
                     this.saveStrategies(type, strategies);
                     return newStrategy;
-                };
+                }
 
-                this.updateStrategy = (type, id, updates) => {
+                updateStrategy(type, id, updates) {
                     const strategies = this.getStrategies(type);
                     const index = strategies.findIndex(s => s.id === id);
                     if (index !== -1) {
@@ -125,29 +125,29 @@ document.addEventListener('DOMContentLoaded', () => {
                         return true;
                     }
                     return false;
-                };
+                }
 
-                this.deleteStrategy = (type, id) => {
+                deleteStrategy(type, id) {
                     const strategies = this.getStrategies(type);
                     const filtered = strategies.filter(s => s.id !== id);
                     this.saveStrategies(type, filtered);
-                };
+                }
 
                 // SWOT management
-                this.getSwotAnalysis = () => {
+                getSwotAnalysis() {
                     return JSON.parse(localStorage.getItem('swotAnalysis')) || {
                         strengths: [],
                         weaknesses: [],
                         opportunities: [],
                         threats: []
                     };
-                };
+                }
 
-                this.saveSwotAnalysis = (swotData) => {
+                saveSwotAnalysis(swotData) {
                     localStorage.setItem('swotAnalysis', JSON.stringify(swotData));
-                };
+                }
 
-                this.addSwotItem = (type, item) => {
+                addSwotItem(type, item) {
                     const swot = this.getSwotAnalysis();
                     const newItem = {
                         id: Date.now(),
@@ -157,16 +157,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     swot[type].push(newItem);
                     this.saveSwotAnalysis(swot);
                     return newItem;
-                };
+                }
 
-                this.deleteSwotItem = (type, id) => {
+                deleteSwotItem(type, id) {
                     const swot = this.getSwotAnalysis();
                     swot[type] = swot[type].filter(item => item.id !== id);
                     this.saveSwotAnalysis(swot);
-                };
+                }
 
                 // Menu performance data
-                this.getMenuPerformance = () => {
+                getMenuPerformance() {
                     const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
                     const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
@@ -190,10 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
 
                     return performance.sort((a, b) => b.quantitySold - a.quantitySold);
-                };
+                }
 
                 // Price comparison data
-                this.getPriceComparison = () => {
+                getPriceComparison() {
                     const menuItems = JSON.parse(localStorage.getItem('menuItems')) || [];
 
                     // Mock competitor prices (in a real app, this would come from a database)
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             differencePercent: ((difference / competitorPrice) * 100).toFixed(1)
                         };
                     });
-                };
+                }
             }
 
             // Load all data
@@ -235,11 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
             function switchTab(tabId) {
                 // Update tab buttons
                 tabBtns.forEach(btn => btn.classList.remove('active'));
-                document.querySelector(`[data-tab="${tabId}"]`) ? .classList.add('active');
+                document.querySelector(`[data-tab="${tabId}"]`)?.classList.add('active');
 
                 // Update tab contents
                 tabContents.forEach(content => content.classList.remove('active'));
-                document.getElementById(`${tabId}Tab`) ? .classList.add('active');
+                document.getElementById(`${tabId}Tab`)?.classList.add('active');
 
                 // Load data for the tab if needed
                 switch (tabId) {
@@ -864,7 +864,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (swotId) {
             // Update existing SWOT item
             const swot = strategyManager.getSwotAnalysis();
-            const index = swot[type].findIndex(item => item.id == swotId);
+            const index = swot[type].findIndex(item => item.id === parseInt(swotId));
             if (index !== -1) {
                 swot[type][index] = { ...swot[type][index], ...swotData };
                 strategyManager.saveSwotAnalysis(swot);

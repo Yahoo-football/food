@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize strategy guide
 function initStrategyGuide() {
-    console.log('Strategy Guide initialized for client:', auth.currentUser ? .name);
+    console.log('Strategy Guide initialized for client:', auth.currentUser?.name);
 
     // Show protected notice for first-time visitors
     const hasSeenNotice = localStorage.getItem('hasSeenStrategyNotice');
@@ -81,7 +81,7 @@ function initNavigation() {
 // Initialize calculators
 function initCalculators() {
     // Profit margin calculator
-    window.calculateProfit = function() {
+    const calculateProfit = function() {
         const foodCost = parseFloat(document.getElementById('foodCost').value) || 0;
         const sellingPrice = parseFloat(document.getElementById('sellingPrice').value) || 0;
         const overhead = parseFloat(document.getElementById('overhead').value) || 0;
@@ -133,10 +133,12 @@ function initCalculators() {
         document.getElementById('profitResults').innerHTML = resultsHTML;
     };
 
+    window.calculateProfit = calculateProfit;
+
     // Calculate on input change
-    document.getElementById('foodCost') ? .addEventListener('input', calculateProfit);
-    document.getElementById('sellingPrice') ? .addEventListener('input', calculateProfit);
-    document.getElementById('overhead') ? .addEventListener('input', calculateProfit);
+    document.getElementById('foodCost')?.addEventListener('input', calculateProfit);
+    document.getElementById('sellingPrice')?.addEventListener('input', calculateProfit);
+    document.getElementById('overhead')?.addEventListener('input', calculateProfit);
 }
 
 // Get pricing recommendation
@@ -203,14 +205,17 @@ function initModal() {
     const closeButtons = document.querySelectorAll('.close-modal');
 
     // Close modal function
-    window.closeModal = function() {
+    const closeModal = function() {
         modal.classList.remove('active');
     };
 
     // Open consultation modal
-    window.scheduleConsultation = function() {
+    const scheduleConsultation = function() {
         modal.classList.add('active');
     };
+
+    window.closeModal = closeModal;
+    window.scheduleConsultation = scheduleConsultation;
 
     // Close modal on button click
     closeButtons.forEach(button => {
@@ -225,7 +230,7 @@ function initModal() {
     });
 
     // Handle form submission
-    form ? .addEventListener('submit', function(e) {
+    form?.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const topic = document.getElementById('consultationTopic').value;
@@ -297,7 +302,7 @@ window.downloadTemplate = function(templateType) {
             downloads.push({
                 template: templateType,
                 date: new Date().toISOString(),
-                client: auth.currentUser ? .name
+                client: auth.currentUser?.name
             });
             localStorage.setItem('templateDownloads', JSON.stringify(downloads));
         }, 1000);
@@ -306,7 +311,7 @@ window.downloadTemplate = function(templateType) {
 
 // Update client badge
 function updateClientBadge() {
-    const clientName = auth.currentUser ? .name;
+    const clientName = auth.currentUser?.name;
     if (clientName) {
         // You could personalize the page for the client
         console.log(`Welcome back, ${clientName}!`);
@@ -385,6 +390,7 @@ function showAlert(message, type = 'info', duration = 5000) {
 }
 
 // Export functions for use in other files
+// @ts-ignore
 window.strategyGuide = {
     initStrategyGuide,
     initNavigation,

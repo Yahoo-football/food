@@ -1159,11 +1159,6 @@ body {
     }
 }
 
-margin-left: 0;
-
-}
-
-}
 @media (max-width: 480px) {
     .notice-content {
         flex-direction: column;
@@ -1184,11 +1179,6 @@ margin-left: 0;
     grid-template-columns: 1fr;
 }
 
-}
-cursor: pointer;
-color: #999;
-
-}
 .close-modal:hover {
     color: #333;
 }
@@ -1268,11 +1258,7 @@ color: #999;
         grid-template-columns: 1fr;
     }
 }
-margin-left: 0;
 
-}
-
-}
 @media (max-width: 480px) {
     .notice-content {
         flex-direction: column;
