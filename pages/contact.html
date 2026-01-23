@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/contact.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Food Explorer</div>
+      <div class="nav">
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Menu</a></li>
+          <li><a href="" class="active">About</a></li>
+          <li><a href="">Dashboard</a></li>
+          <li></li>
+        </ul>
+      </div>
+    </header>
+    <!-- HERO WITH FOOD IMAGE -->
+    <section class="hero hero-food">
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content">
+        <span class="hero-badge">Get in Touch</span>
+        <h1 class="section-title light">Contact Us</h1>
+        <p class="hero-text light">
+          Have questions or need more information? We’re happy to help you
+          anytime.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-section">
+      <div class="contact-card">
+        <h2 class="hero-content section-title">Have Any Questions?</h2>
+        <p class="section-desc">
+          Want to know more about our ingredients, services, or just say hello?
+          Fill in the form below and our team will respond shortly.
+        </p>
+
+        <form id="contactForm">
+          <div class="form-group">
+            <label>Email Address</label>
+            <div class="input-box">
+              <!-- <i class="fa fa-envelope"></i> -->
+              <input type="email" required placeholder="example@email.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Your Name</label>
+            <div class="input-box">
+              <!-- <i class="fa fa-user"></i> -->
+              <input type="text" required placeholder="Your full name" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Your Message</label>
+            <div class="input-box">
+              <!-- <i class="fa fa-comment"></i> -->
+              <textarea
+                required
+                placeholder="Write your message here..."
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-success">
+            <i class="fa fa-paper-plane"></i> Send Message
+          </button>
+
+          <p class="success-message" id="successMessage">
+            Thank you! Your message has been sent successfully.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <!-- OPEN HOURS -->
+    <section class="open-section">
+      <h2 class="section-title">We Are Open</h2>
+      <p class="section-desc">
+        We bring you the flavor of the ocean, located in the heart of downtown.
+        <strong>Delivery within 25 km in any direction.</strong>
+      </p>
+
+      <div class="hours">
+        <p>Mon – Wed: 9:00 am – 5:00 pm</p>
+        <p>Thu – Fri: 9:00 am – 8:30 pm</p>
+        <p>Saturday: 9:00 am – 10:00 pm</p>
+        <p>Sunday: Closed</p>
+      </div>
+    </section>
+
+  </body>
+</html>

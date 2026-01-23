@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-right: 5%;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5em;
+  color: #667eea;
+  letter-spacing: 0.5px;
+}
+.nav {
+  width: 600px;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  justify-content: space-between;
+  align-items: center;
+}
+li {
+  width: 70px;
+}
+li:last-child {
+  /* background: #000; */
+  background-image: url(../images/User.jpg);
+  background-size: cover;
+  background-position-x: -25px;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+.nav a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #667eea;
+  padding: 8px 10px;
+  transition: all 0.3s ease;
+  border-bottom: 0 solid #667eea;
+  width: 0px;
+}
+
+.nav a:hover,
+.nav a.active {
+  width: 100%;
+  /* background: #d9ff00; */
+  border-bottom: 4px solid #667eea;
+  color: #667eea;
+  border-radius: 4px;
+}
+
+:root {
+  --green: #6a8f3d;
+  --green-light: #e8f0dc;
+  --green-soft: #f3f7ec;
+  --text: #2f3e2f;
+  --orange: #ff9f1c;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: white;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* HERO FOOD COVER */
+.hero-food {
+  position: relative;
+  height: 45vh;
+  background: url("https://images.unsplash.com/photo-1540189549336-e6e99c3679fe")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Rounded bottom */
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  overflow: hidden; /* IMPORTANT */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+
+  /* Match radius */
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+/* TITLES */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 2px;
+}
+
+.section-title.light {
+  color: white;
+}
+
+.section-title.light::after {
+  background: #cde6a1;
+}
+
+.hero-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-text.light {
+  color: #f1f1f1;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  padding: 80px 15%;
+}
+
+.contact-card {
+  background: var(--green-soft);
+  padding: 50px;
+  border-radius: 25px;
+
+}
+
+.section-desc {
+  color: #555;
+  margin-bottom: 35px;
+}
+
+/* FORM */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  padding: 12px;
+  /* border: 1px solid #ddd; */
+}
+
+.input-box i {
+  color: var(--green);
+  margin-right: 10px;
+}
+
+.input-box input,
+.input-box textarea {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-family: inherit;
+}
+
+.input-box textarea {
+  height: 110px;
+  resize: none;
+}
+
+.input-box:focus-within {
+  border-color: var(--green);
+}
+
+/* BUTTON */
+.btn-success {
+  background: var(--green);
+  border: none;
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-success:hover {
+  background: #5a7a35;
+  transform: translateY(-3px);
+}
+
+/* SUCCESS MESSAGE */
+.success-message {
+  display: none;
+  margin-top: 20px;
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* OPEN SECTION */
+.open-section {
+  background: var(--green-light);
+  padding: 70px 20%;
+  text-align: center;
+}
+.open-section {
+  background: var(--green-light);
+  padding: 70px 20%;
+  text-align: center;
+}
+
+.hours p {
+  margin: 6px 0;
+  color: #555;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contact-section,
+  .open-section {
+    padding: 60px 8%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-food {
+    height: 35vh;
+  }
+}
