@@ -49,49 +49,48 @@
      min-height: 100vh;
  }
 
- header {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     padding: 15px 50px;
-     background: rgba(255, 255, 255, 0.95);
-     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-     position: sticky;
-     top: 0;
-     z-index: 100;
- }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 
- .logo {
-     font-weight: 700;
-     font-size: 1.5em;
-     color: #667eea;
-     letter-spacing: 0.5px;
- }
+.logo {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #667eea;
+    letter-spacing: 0.5px;
+}
 
- .nav {
-     width: 600px;
- }
+.nav {
+    width: 600px;
+}
 
- ul {
-     list-style: none;
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
- }
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
- li {
-     width: 70px;
- }
+li {
+    width: 70px;
+}
 
- li:last-child {
-     /* background: #000; */
-     background-image: url(../images/User.jpg);
-     background-size: cover;
-     background-position-x: -25px;
-     border-radius: 100%;
-     width: 60px;
-     height: 60px;
- }
+li:last-child {
+    background-image: url(../images/User.jpg);
+    background-size: cover;
+    background-position-x: -25px;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+}
 
  li a {
      text-decoration: none;
@@ -108,7 +107,6 @@
      color: white;
  }
 
- /* Menu Grid */
  .menu {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -116,61 +114,41 @@
      padding: 40px;
  }
 
- /* Product Card */
  .product {
-     background: #fff;
-     padding: 20px;
+     background: #ffffff;
      border-radius: 12px;
+     padding: 20px;
      text-align: center;
-     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-     transition: transform 0.4s ease, box-shadow 0.4s ease;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
  }
 
- /* Card hover animation */
- .product:hover {
-     transform: translateY(-10px);
-     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
- }
-
- /* Image */
  .product img {
-     width: 100%;
-     max-width: 400px;
+     width: 200px;
      height: auto;
-     transition: transform 0.4s ease;
+     margin-bottom: 15px;
  }
 
- .product:hover img {
-     transform: scale(1.08) rotate(-2deg);
+ .product h3 {
+     margin: 10px 0;
  }
 
- /* Price */
  .price {
      display: block;
-     margin: 10px 0;
-     font-size: 18px;
      font-weight: bold;
-     color: #a213a0;
+     margin: 10px 0;
  }
 
- /* Button */
- .product button {
-     padding: 10px 18px;
-     border: none;
-     background: #871ea4;
+ button {
+     background: #9f09b0;
      color: #fff;
-     border-radius: 25px;
+     border: none;
+     padding: 10px 15px;
+     border-radius: 6px;
      cursor: pointer;
-     transition: background 0.3s ease, transform 0.3s ease;
  }
 
- .product button:hover {
-     background: #556b2f;
-     transform: scale(1.05);
- }
-
- .product button:active {
-     transform: scale(0.95);
+ button:hover {
+     background: #61067a;
  }
 
  /* Hero Section */
@@ -185,47 +163,6 @@
  }
 
  .hero img {
-     width: 100%;
-     max-width: 400px;
+     width: 300px;
      border-radius: 10px;
  }
-
- /* ========================= */
- /* 📱 Mobile (max 600px) */
- /* ========================= */
- @media (max-width: 600px) {
-     .menu {
-         gap: 15px;
-     }
-
-     .hero h1 {
-         font-size: 1.8rem;
-     }
-
-     .product {
-         padding: 20px;
-     }
-
-     .price {
-         font-size: 16px;
-     }
-
-     .hero img {
-         max-width: 400px;
-     }
-     .menu .product img{
-        width: 300%;
-        max-width: 250px;
-
-     }
- }
-
- /* ========================= */
- /* 📱 Tablet (601px–992px) */
- /* ========================= */
- @media (max-width: 992px) {
-     .hero h1 {
-         font-size: 2.1rem;
-     }
- }
->>>>>>> strategy-feature
