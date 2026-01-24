@@ -15,80 +15,114 @@ const btn = document.getElementById("btn");
 const text = document.querySelector('#text')
 let count = 0;
 
-const login = document.getElementById("login");
-const aTag = login.querySelector('a')
 const userName = document.getElementById('username')
 const userPassword = document.getElementById('userpassword')
 const dashboard = document.getElementById('Dashboard')
 const strategy = document.getElementById('strategy')
-console.log(dashboard)
 
-const admin = [{'name':'sreyroth','password':'12345678'}];
-console.log(admin[0]['name']);
+const loginBtn = document.getElementById("login");
 
-login.addEventListener('click', () => {
+const admin = [{ 'name': 'sreyroth', 'password': '12345678' }];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const role = localStorage.getItem('role');
+  const dashboard = document.getElementById('Dashboard');
+  const strategy = document.getElementById('strategy');
+
+  // Hide dashboard & strategy for normal users
+  if (role === 'user') {
+    if (dashboard) dashboard.style.display = 'none';
+    if (strategy) strategy.style.display = 'none';
+  } else if (role === 'admin') {
+    // Admin: show everything
+    if (dashboard) dashboard.style.display = 'block';
+    if (strategy) strategy.style.display = 'block';
+  } else {
+    // If not logged in, redirect to login page
+    window.location.href = 'index.html';
+  }
+});
+
+
+loginBtn.addEventListener('click', () => {
   const user = localStorage.getItem("user");
-  if(userPassword.value === admin[0]['password'] && userName.value === admin[0]['name']){
-    console.log(userPassword.value)
-    dashboard.style.display='none';
-    strategy.style.display = 'none';
-    aTag.href = 'navbar.html';
-  }else{
+
+  // --- Admin Login ---
+  if (userPassword.value === admin[0]['password'] && userName.value === admin[0]['name']) {
+    localStorage.setItem("role", "admin"); 
+    window.location.href = 'home.html'; 
+  } 
+  
+  // --- Normal User Login ---
+  else if (user) {
     for (let data of JSON.parse(user)) {
-      if (userPassword.value === data.password && userName.value === data.name || userName.value === data.email) {
-        aTag.href = 'navbar.html';
+      if (
+        (userPassword.value === data.password && userName.value === data.name) ||
+        (userPassword.value === data.password && userName.value === data.email)
+      ) {
+        localStorage.setItem("role", "user"); // 
+        window.location.href = 'home.html';
+        return;
       }
     }
+    alert("Invalid username or password!");
+  } 
+  else {
+    alert("No users found. Please register first!");
   }
-})
+});
+
+
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let user = [];
-  localStorage.setItem('user', JSON.stringify(user));
-  if (count >= 8) {
-    const user = localStorage.getItem("user");
-    let userAppend = JSON.parse(user);
-    userAppend.forEach((u) => {
-      console.log(u.name);
-      console.log(u.email);
-      console.log(u.password);
-    });
+  // Get current users from localStorage (if any)
+  let users = JSON.parse(localStorage.getItem('user')) || [];
+
+  // Check password length directly
+  if (password.value.length >= 8) {
     const newUser = {
-      name: name.value,
-      email: email.value,
-      password: password.value,
+      name: name.value.trim(),
+      email: email.value.trim(),
+      password: password.value.trim(),
     };
 
-    console.log(newUser);
-    userAppend.push(newUser);
+    // Add new user
+    users.push(newUser);
 
-    localStorage.setItem("user", JSON.stringify(userAppend));
+    // Save back to localStorage
+    localStorage.setItem("user", JSON.stringify(users));
 
+    // Clear inputs
     name.value = "";
     email.value = "";
     password.value = "";
-    count = 0;
-    text.style.color = 'white'
+    text.style.color = 'white';
+    text.textContent = '';
     container.classList.remove("right-panel-active");
+
+    alert("User registered successfully!");
+  } else {
+    text.style.color = 'red';
+    text.textContent = 'Password must be at least 8 characters!';
+    alert("Password must be at least 8 characters!");
   }
 });
 
+// ✅ Proper password length feedback
 password.addEventListener('input', () => {
-  if (event.data === null) {
-    count -= 1
-  }
-  else {
-    count += 1
-  }
-  if (count <= 7 && count >= 0) {
+  const length = password.value.length;
+
+  if (length < 8) {
     text.style.color = 'red';
-  }
-  else {
+    text.textContent = 'Password must be at least 8 characters!';
+  } else {
     text.style.color = 'green';
+    text.textContent = 'Password is strong enough.';
   }
-})
+});
+
 
 
 
