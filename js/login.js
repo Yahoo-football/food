@@ -34,14 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dashboard) dashboard.style.display = 'none';
     if (strategy) strategy.style.display = 'none';
   } else if (role === 'admin') {
-    // Admin: show everything
     if (dashboard) dashboard.style.display = 'block';
     if (strategy) strategy.style.display = 'block';
   } else {
-    // If not logged in, redirect to login page
-    window.location.href = 'index.html';
+    // ✅ Only redirect if NOT on login page
+    if (!window.location.pathname.includes('login.html')) {
+      window.location.href = 'login.html';
+    }
   }
 });
+
 
 
 loginBtn.addEventListener('click', () => {
