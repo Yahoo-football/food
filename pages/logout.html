@@ -112,6 +112,15 @@
 
         function handleCancel() {
             alert('Logout canceled');
+
+            // Option 1: Go back to the previous page in browser history
+            if (window.history.length > 1) {
+                window.history.back();
+            }
+            // Option 2: If no history (e.g. opened directly), go home
+            else {
+                window.location.href = 'home.html';
+            }
         }
     </script>
 
