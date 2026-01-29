@@ -105,7 +105,6 @@
         padding: 8px 10px;
         transition: all 0.3s ease;
         border-bottom: 0 solid #667eea;
-        width: 0px;
       }
 
       .nav a:hover,
