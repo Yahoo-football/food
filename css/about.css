@@ -1,0 +1,395 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 20px;
+}
+.form-box{
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width:320px;
+}
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ :root {
+     --green: #6a8f3d;
+     --green-light: #e8f0dc;
+     --green-soft: #f3f7ec;
+     --text: #2f3e2f;
+     --orange: #ff9f1c;
+ }
+
+ body {
+     font-family:
+         "Segoe UI",
+         -apple-system,
+         BlinkMacSystemFont,
+         sans-serif;
+     background: var(--green-light);
+     color: #333;
+     min-height: 100vh;
+ }
+
+/* HEADER */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 40px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5em;
+        color: #667eea;
+      }
+
+      /* NAV */
+      .nav {
+        width: 900px;
+        display: flex ;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav li {
+        min-width: 70px;
+      }
+
+      .nav .image {
+        background-image: url(../images/User.jpg);
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+      }
+
+      .nav a {
+        text-decoration: none;
+        font-size: 17px;
+        color: #333;
+        padding: 8px 10px;
+        transition: all 0.3s ease;
+        border-bottom: 0 solid #667eea;
+        width: 0px;
+      }
+
+      .nav a:hover,
+      .nav a.active {
+        border-bottom: 4px solid #667eea;
+        color: #000000;
+        border-radius: 4px;
+      }
+
+      /* HAMBURGER */
+      .menu-toggle {
+        display: none;
+        font-size: 28px;
+        cursor: pointer;
+      }
+
+      /* HERO - REDUCED TO 30% */
+      .hero {
+        background: var(--green-light);
+        padding: 40px 0 60px; /* Reduced padding */
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        min-height: 30vh; /* 30% of viewport height */
+        display: flex;
+        align-items: center;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: #dce8c8;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        margin-bottom: 15px;
+      }
+      .hero-img img {
+        border-radius: 30px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        max-height: 300px;
+        object-fit: cover;
+      }
+
+      /* INFO CARDS */
+      .info-card {
+        background: #fff;
+        border-radius: 25px;
+        padding: 25px 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+        margin-top: -40px; /* Position closer to hero */
+      }
+      .info-card:hover {
+        transform: translateY(-8px);
+      }
+
+      /* ABOUT SECTION STYLE */
+      .section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 1.2rem;
+        position: relative;
+        padding-bottom: 12px;
+      }
+      .section-title:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--green);
+        border-radius: 2px;
+      }
+
+      .about-content {
+        background: var(--green-soft);
+        border-radius: 25px;
+        padding: 40px;
+        margin: 40px 0;
+      }
+
+      .about-text {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+
+      .learn-more-btn {
+        background: var(--green);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .learn-more-btn:hover {
+        background: #5a7a35;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(106, 143, 61, 0.2);
+      }
+
+      /* WHY CHOOSE US SECTION */
+      .why-choose-section {
+        padding: 60px 0;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        height: 100%;
+        transition: all 0.3s ease;
+        border-left: 5px solid var(--green);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.2rem;
+        color: var(--green);
+        margin-bottom: 15px;
+      }
+
+      .feature-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: var(--text);
+      }
+
+      .feature-text {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+
+      /* MENU SECTION */
+      .menu-section {
+        padding: 60px 0;
+        background: var(--green-soft);
+      }
+
+      .menu-card {
+        border: none;
+        border-radius: 25px;
+        text-align: center;
+        padding: 25px 20px 20px;
+        background: white;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        height: 100%;
+      }
+      .menu-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+      .menu-img {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 15px;
+        border-radius: 50%;
+        padding: 5px;
+        background: #7aa24a;
+      }
+      .menu-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .price {
+        color: #7aa24a;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .cart-btn {
+        background: #7aa24a;
+        color: white;
+        border-radius: 10px;
+        padding: 8px 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        font-size: 0.9rem;
+      }
+      .cart-btn:hover {
+        background: #5a7a35;
+      }
+
+      /* CHEF SECTION - EXACT STYLE FROM YOUR CODE */
+      .chef-img {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 8px;
+        background: linear-gradient(135deg, #6a8f3d, #9fc36a);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        transition: transform 0.4s ease;
+        display: block;
+        margin: 0 auto;
+      }
+      .chef-img:hover {
+        transform: rotate(2deg) scale(1.05);
+      }
+
+      .chef-section {
+        padding: 80px 0;
+      }
+
+      .chef-section h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .chef-section .lead {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--green);
+        margin-bottom: 15px;
+      }
+
+      .chef-section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #2f3e2f;
+        color: white;
+        padding: 40px 0;
+        margin-top: 60px;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 30px 0 40px;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+          min-height: 25vh;
+        }
+        .about-content {
+          padding: 25px;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .chef-img {
+          width: 220px;
+          height: 220px;
+          margin-bottom: 30px;
+        }
+      }
+
+      /* BUTTONS */
+      .btn-success {
+        background-color: var(--green) !important;
+        border-color: var(--green) !important;
+        padding: 10px 25px;
+        font-weight: 500;
+      }
+      .btn-success:hover {
+        background-color: #5a7a35 !important;
+        border-color: #5a7a35 !important;
+      }
